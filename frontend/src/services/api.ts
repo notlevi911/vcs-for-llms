@@ -99,7 +99,7 @@ class ApiService {
 
   // Health check
   async healthCheck(): Promise<ApiResponse<any>> {
-    const response = await fetch(`${API_BASE}/health`, {
+    const response = await fetch(`${API_BASE_URL}/health`, {
       method: 'GET',
     });
 

@@ -1,5 +1,5 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-
+import React, { createContext, useContext, useState, useEffect, } from 'react';
+import type { ReactNode } from 'react';
 interface User {
   id: string;
   email: string;
@@ -22,7 +22,12 @@ interface AuthProviderProps {
   children: ReactNode;
 }
 
-const API_BASE_URL = 'http://localhost:8000/v1';
+// 1. Get API base URL from env (with fallback)
+const RAW_API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/";
+
+// 2. Append /v1 to form final base URL
+const API_BASE_URL = `${RAW_API_BASE_URL.replace(/\/+$/, "")}/v1`;
+
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);

@@ -1,4 +1,5 @@
-const API_BASE_URL = 'http://localhost:8000';
+// Use Vite env var with fallback to localhost
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
 
 export const checkBackendHealth = async (): Promise<boolean> => {
   try {
@@ -17,7 +18,7 @@ export const showBackendStatus = async (): Promise<void> => {
     console.log('✅ Backend is running and healthy');
   } else {
     console.warn('❌ Backend is not accessible. Please ensure:');
-    console.warn('1. Backend server is running on http://localhost:8000');
+    console.warn(`1. Backend server is running on ${API_BASE_URL}`);
     console.warn('2. MongoDB is running');
     console.warn('3. Ollama is running with Llama3 model');
     console.warn('Run: cd backend && python run.py');
