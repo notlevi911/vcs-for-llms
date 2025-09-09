@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-dark-bg text-text-primary font-sans;
+    margin: 0;
+    min-height: 100vh;
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0);
+    background-size: 20px 20px;
+  }
+  
+  * {
+    @apply box-border;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-dark-surface;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-dark-border rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-dark-border-light;
+  }
+}
+
+@layer components {
+  .message-bubble {
+    @apply max-w-xs lg:max-w-md px-4 py-3 rounded-2xl break-words shadow-modern;
+  }
+  
+  .message-user {
+    @apply bg-gradient-to-r from-accent-primary to-accent-primary-hover text-text-primary ml-auto shadow-glow;
+  }
+  
+  .message-assistant {
+    @apply bg-dark-surface-2 text-text-primary mr-auto border border-dark-border;
+  }
+  
+  .sidebar-item {
+    @apply p-3 hover:bg-dark-surface-2 cursor-pointer rounded-xl transition-all duration-300 hover:shadow-modern;
+  }
+  
+  .sidebar-item.active {
+    @apply bg-dark-surface-3 border border-accent-primary/30 shadow-glow;
+  }
+  
+  .btn-primary {
+    @apply text-text-primary px-6 py-3 font-medium transition-all duration-300 hover:bg-accent-primary hover:rounded-xl hover:shadow-modern hover:scale-105 active:scale-95;
+  }
+  
+  .btn-secondary {
+    @apply text-text-primary px-6 py-3 font-medium transition-all duration-300 hover:bg-accent-secondary hover:rounded-xl hover:shadow-modern hover:scale-105 active:scale-95;
+  }
+  
+  .btn-ghost {
+    @apply text-text-secondary hover:text-text-primary px-4 py-2 transition-all duration-300 hover:bg-dark-surface-2 hover:rounded-xl hover:shadow-modern;
+  }
+  
+  .glass-card {
+    @apply bg-glass-bg backdrop-blur-sm border border-glass-border rounded-2xl shadow-glass;
+  }
+  
+  .input-modern {
+    @apply bg-dark-surface-2 border border-dark-border text-text-primary px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent-primary/50 focus:border-accent-primary transition-all duration-300 placeholder:text-text-muted;
+  }
+  
+  .card-modern {
+    @apply bg-dark-surface border border-dark-border rounded-2xl shadow-modern hover:shadow-glow transition-all duration-300;
+  }
+}
